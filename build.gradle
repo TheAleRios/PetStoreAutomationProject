@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+ 
+    testImplementation 'io.github.cdimascio:dotenv-java:3.0.0'
+
+    implementation 'io.cucumber:cucumber-java:7.14.0'
+    implementation 'io.cucumber:cucumber-java8:7.14.0'
+    testImplementation 'io.cucumber:cucumber-junit-platform-engine:7.14.0'
+
+    testImplementation 'org.junit.platform:junit-platform-suite:1.10.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.1'    
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.1'
+    
+  
+    implementation 'net.serenity-bdd:serenity-core:3.9.0'
+    implementation 'net.serenity-bdd:serenity-cucumber6:2.6.0'
+
+
+    implementation 'io.rest-assured:rest-assured:5.3.0'
+
+
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'cucumber.object-factory', 'io.cucumber.core.backend.DefaultObjectFactory'
+    systemProperty 'cucumber.filter.tags', 'not @ignore'
+
+
+    systemProperty "env", project.findProperty("env") ?: System.getenv("ENV") ?: "prod"
+    systemProperty "baseUrlProd", System.getenv("BASE_URL_PROD") ?: "https://petstore3.swagger.io/api/v3"
+    systemProperty "baseUrlStaging", System.getenv("BASE_URL_STAGING") ?: "https://petstore.swagger.io/v2"
+    systemProperty "baseUrlLocal", System.getenv("BASE_URL_LOCAL") ?: "http://localhost:8080/api/v3"
+}

@@ -1,0 +1,47 @@
+
+gScenario: Verify properly adding an order to the store            [90m# features/Store.feature:6[0m
+Using environment: local
+(Base URL: http://localhost:8080/api/v3
+™  [32mGiven [0m[32mAPI is up and running[0m                                     [90m# stepdefinitions.petStorePetSteps.api_is_up_and_running()[0m
+º  [32mAnd [0m[32mI have the following JSON request body:[0m                     [90m# stepdefinitions.petStorePetSteps.i_have_the_following_json_request_body(java.lang.String)[0m
+¹  [32mWhen [0m[32mI send a POST request to [0m[32m[1m"/store/order"[0m                    [90m# stepdefinitions.petStorePetSteps.i_send_a_post_request_to(java.lang.String)[0m
+½  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                            [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+Ë  [32mAnd [0m[32mthe response body should contain the field [0m[32m[1m"id"[0m             [90m# stepdefinitions.petStorePetSteps.the_response_body_should_contain_the_field(java.lang.String)[0m
+ï  [32mAnd [0m[32mthe response body should contain the [0m[32m[1m"status"[0m[32m as [0m[32m[1m"approved"[0m [90m# stepdefinitions.petStorePetSteps.the_response_body_should_contain_the_as(java.lang.String,java.lang.String)[0m
+
+aScenario: Verify adding an order to the store with no data [90m# features/Store.feature:28[0m
+Using environment: local
+(Base URL: http://localhost:8080/api/v3
+’  [32mGiven [0m[32mAPI is up and running[0m                              [90m# stepdefinitions.petStorePetSteps.api_is_up_and_running()[0m
+³  [32mAnd [0m[32mI have the following JSON request body:[0m              [90m# stepdefinitions.petStorePetSteps.i_have_the_following_json_request_body(java.lang.String)[0m
+²  [32mWhen [0m[32mI send a POST request to [0m[32m[1m"/store/order"[0m             [90m# stepdefinitions.petStorePetSteps.i_send_a_post_request_to(java.lang.String)[0m
+¶  [32mThen [0m[32mthe response code should be [0m[32m[1m400[0m                     [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+
+gScenario: Verify adding an order to the store with an empty json [90m# features/Store.feature:39[0m
+Using environment: local
+(Base URL: http://localhost:8080/api/v3
+˜  [32mGiven [0m[32mAPI is up and running[0m                                    [90m# stepdefinitions.petStorePetSteps.api_is_up_and_running()[0m
+¹  [32mAnd [0m[32mI have the following JSON request body:[0m                    [90m# stepdefinitions.petStorePetSteps.i_have_the_following_json_request_body(java.lang.String)[0m
+¸  [32mWhen [0m[32mI send a POST request to [0m[32m[1m"/store/order"[0m                   [90m# stepdefinitions.petStorePetSteps.i_send_a_post_request_to(java.lang.String)[0m
+¼  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                           [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+î  [32mAnd [0m[32mthe response body should contain the [0m[32m[1m"id"[0m[32m as [0m[32m[1m"0"[0m           [90m# stepdefinitions.petStorePetSteps.the_response_body_should_contain_the_as(java.lang.String,java.lang.String)[0m
+
+aScenario: Verify properly deleting an order from the store [90m# features/Store.feature:54[0m
+Using environment: local
+(Base URL: http://localhost:8080/api/v3
+’  [32mGiven [0m[32mAPI is up and running[0m                              [90m# stepdefinitions.petStorePetSteps.api_is_up_and_running()[0m
+³  [32mAnd [0m[32mI have the following JSON request body:[0m              [90m# stepdefinitions.petStorePetSteps.i_have_the_following_json_request_body(java.lang.String)[0m
+²  [32mWhen [0m[32mI send a POST request to [0m[32m[1m"/store/order"[0m             [90m# stepdefinitions.petStorePetSteps.i_send_a_post_request_to(java.lang.String)[0m
+¶  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                     [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+´  [32mWhen [0m[32mI send a DELETE request to [0m[32m[1m"/store/order/1"[0m         [90m# stepdefinitions.petStorePetSteps.i_send_a_delete_request_to(java.lang.String)[0m
+¶  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                     [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+
+]Scenario: Verify getting an order by id from the store [90m# features/Store.feature:76[0m
+Using environment: local
+(Base URL: http://localhost:8080/api/v3
+Ž  [32mGiven [0m[32mAPI is up and running[0m                          [90m# stepdefinitions.petStorePetSteps.api_is_up_and_running()[0m
+¯  [32mAnd [0m[32mI have the following JSON request body:[0m          [90m# stepdefinitions.petStorePetSteps.i_have_the_following_json_request_body(java.lang.String)[0m
+®  [32mWhen [0m[32mI send a POST request to [0m[32m[1m"/store/order"[0m         [90m# stepdefinitions.petStorePetSteps.i_send_a_post_request_to(java.lang.String)[0m
+²  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                 [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
+­  [32mWhen [0m[32mI send a GET request to [0m[32m[1m"/store/order/1"[0m        [90m# stepdefinitions.petStorePetSteps.i_send_a_get_request_to(java.lang.String)[0m
+²  [32mThen [0m[32mthe response code should be [0m[32m[1m200[0m                 [90m# stepdefinitions.petStorePetSteps.the_response_code_should_be(java.lang.Integer)[0m
